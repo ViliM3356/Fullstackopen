@@ -1,0 +1,20 @@
+title 0.4: uusi muistiinpano
+
+selain->palvelin: HTTP POST osoitteeseen new_note
+palvelin-->selain: HTTP-statuskoodilla 302 redirect
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: data.json
+
+note over selain
+Käyttäjä kirjoittaa viestin ja lähettää sen palvelimelle. HTTP POST menee osoitteesees new_note
+Palvelin vastaa pyyntöön HTTP-statuskoodilla 302. Minkä avulla palvelin tekee automaattisesti
+uuden HTTP GET -pyynnön headerin Location kertomaan paikkaan, eli osoitteeseen notes.
+end note
